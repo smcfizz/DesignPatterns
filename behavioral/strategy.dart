@@ -182,6 +182,8 @@ class DepthFirstSearch implements ISearchAlgorithm {
           newCol >= 0 &&
           newCol < m[0].length &&
           m[newRow][newCol] != 1 &&
+          // Watch out! There's a weird dart bug here where
+          // visited isn't updating that I didn't have time to fix :)
           (visited.where((e) => e == neighbor).length == 0)) {
         return dfs(m, newRow, newCol, visited);
       }
