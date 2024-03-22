@@ -34,6 +34,7 @@ void main() {
   print(oldData);
 }
 
+// This class is called the Creator class, because it "creates" Products
 abstract class DataStore {
   // Creator method
   DataConnection connect();
@@ -47,6 +48,7 @@ abstract class DataStore {
   }
 }
 
+// These classes are called Concrete Creators
 class Database extends DataStore {
   @override
   DataConnection connect() {
@@ -61,11 +63,13 @@ class S3Storage extends DataStore {
   }
 }
 
+// This is called the Product - what the factory method "Produces"
 abstract interface class DataConnection {
   void save(String s);
   String load();
 }
 
+// These are called Concrete Products
 class DatabaseConnection implements DataConnection {
   @override
   String load() {
